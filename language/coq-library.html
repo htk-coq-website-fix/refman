@@ -1,77 +1,43 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>The Coq library &mdash; Coq 8.17.1 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Coq library &mdash; Coq 8.18.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/ansi.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/coqdoc.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/notations.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/pre-text.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
         <script src="../_static/notations.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/ansi.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/coqdoc.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/notations.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pre-text.css" type="text/css" />
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Program extraction" href="../addendum/extraction.html" />
     <link rel="prev" title="Libraries and plugins" href="../using/libraries/index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> Coq
-          
-
-          
           </a>
-
-          
-            
-            
               <div class="version">
-                8.17.1
+                8.18.0
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -79,21 +45,11 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction and Contents</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Specification language</span></p>
+<p class="caption" role="heading"><span class="caption-text">Specification language</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="core/index.html">Core language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="core/basic.html">Basic notions and conventions</a><ul>
@@ -141,7 +97,6 @@
 <li class="toctree-l3"><a class="reference internal" href="cic.html#the-terms">The terms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cic.html#id6">Typing rules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cic.html#subtyping-rules">Subtyping rules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cic.html#admissible-rules-for-global-environments">Admissible rules for global environments</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cic.html#the-calculus-of-inductive-constructions-with-impredicative-set">The Calculus of Inductive Constructions with impredicative Set</a></li>
 </ul>
 </li>
@@ -160,7 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="core/records.html#settings-for-printing-records">Settings for printing records</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/records.html#primitive-projections">Primitive Projections</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/records.html#reduction">Reduction</a></li>
-<li class="toctree-l4"><a class="reference internal" href="core/records.html#compatibility-projections-and-match">Compatibility Projections and <code class="code Coq docutils literal notranslate"><span class="keyword"><span class="pre">match</span></span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/records.html#compatibility-constants-for-projections">Compatibility Constants for Projections</a></li>
 </ul>
 </li>
 </ul>
@@ -168,7 +123,7 @@
 <li class="toctree-l2"><a class="reference internal" href="core/inductive.html">Inductive types and recursive functions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/inductive.html#inductive-types">Inductive types</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="core/inductive.html#simple-inductive-types">Simple inductive types</a></li>
-<li class="toctree-l4"><a class="reference internal" href="core/inductive.html#simple-annotated-inductive-types">Simple annotated inductive types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="core/inductive.html#simple-indexed-inductive-types">Simple indexed inductive types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/inductive.html#parameterized-inductive-types">Parameterized inductive types</a></li>
 <li class="toctree-l4"><a class="reference internal" href="core/inductive.html#mutually-defined-inductive-types">Mutually defined inductive types</a></li>
 </ul>
@@ -193,7 +148,10 @@
 <li class="toctree-l3"><a class="reference internal" href="core/coinductive.html#top-level-definitions-of-corecursive-functions">Top-level definitions of corecursive functions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="core/sections.html">Section mechanism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core/sections.html">Sections</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="core/sections.html#typing-rules-used-at-the-end-of-a-section">Typing rules used at the end of a section</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="core/modules.html">The Module System</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="core/modules.html#modules-and-module-types">Modules and module types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="core/modules.html#using-modules">Using modules</a><ul>
@@ -237,7 +195,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../addendum/sprop.html#non-termination-with-uip">Non Termination with UIP</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/sprop.html#issues-with-non-cumulativity">Issues with non-cumulativity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/sprop.html#lack-of-tactic-support">Lack of tactic support</a></li>
 </ul>
 </li>
 </ul>
@@ -365,12 +323,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../addendum/implicit-coercions.html">Implicit Coercions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#general-presentation">General Presentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#coercion-classes">Coercion Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#id1">Coercions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#reversible-coercions">Reversible Coercions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#identity-coercions">Identity Coercions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#inheritance-graph">Inheritance Graph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#declaring-coercions">Declaring Coercions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#id2">Coercion Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#displaying-available-coercions">Displaying Available Coercions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#activating-the-printing-of-coercions">Activating the Printing of Coercions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/implicit-coercions.html#classes-as-records">Classes as Records</a></li>
@@ -380,16 +338,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../addendum/type-classes.html">Typeclasses</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#class-and-instance-declarations">Class and Instance declarations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#binding-classes">Binding classes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#parameterized-instances">Parameterized Instances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#typeclass-and-instance-declarations">Typeclass and instance declarations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#binding-typeclasses">Binding typeclasses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#parameterized-instances">Parameterized instances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#sections-and-contexts">Sections and contexts</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#building-hierarchies">Building hierarchies</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../addendum/type-classes.html#superclasses">Superclasses</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../addendum/type-classes.html#substructures">Substructures</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#summary-of-the-commands">Summary of the commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../addendum/type-classes.html#command-summary">Command summary</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../addendum/type-classes.html#typeclasses-transparent-typeclasses-opaque">Typeclasses Transparent, Typeclasses Opaque</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../addendum/type-classes.html#settings">Settings</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../addendum/type-classes.html#typeclasses-eauto">Typeclasses eauto</a></li>
@@ -446,7 +404,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Proofs</span></p>
+<p class="caption" role="heading"><span class="caption-text">Proofs</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../proofs/writing-proofs/index.html">Basic proof writing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../proofs/writing-proofs/proof-mode.html">Proof mode</a><ul>
@@ -640,11 +598,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../proofs/automatic-tactics/auto.html">Programmable proof search</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-databases">Hint databases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#creating-hint-databases">Creating Hint databases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#creating-hints">Creating Hints</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-databases-defined-in-the-coq-standard-library">Hint databases defined in the Coq standard library</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-locality">Hint locality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#tactics">Tactics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-databases">Hint databases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#creating-hint-databases">Creating hint databases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-databases-defined-in-the-coq-standard-library">Hint databases defined in the Coq standard library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#creating-hints">Creating Hints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#hint-locality">Hint locality</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../proofs/automatic-tactics/auto.html#setting-implicit-automation-tactics">Setting implicit automation tactics</a></li>
 </ul>
 </li>
@@ -812,7 +775,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Using Coq</span></p>
+<p class="caption" role="heading"><span class="caption-text">Using Coq</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../using/libraries/index.html">Libraries and plugins</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The Coq library</a><ul>
@@ -979,7 +942,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Appendix</span></p>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../appendix/history-and-changes/index.html">History and recent changes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../history.html">Early history of Coq</a><ul>
@@ -1009,33 +972,38 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../changes.html">Recent changes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-17">Version 8.17</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-18">Version 8.18</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#summary-of-changes">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-18-0">Changes in 8.18.0</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-17">Version 8.17</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id141">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-17-0">Changes in 8.17.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-17-1">Changes in 8.17.1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-16">Version 8.16</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id154">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id295">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-16-0">Changes in 8.16.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-16-1">Changes in 8.16.1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-15">Version 8.15</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id316">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id458">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-15-0">Changes in 8.15.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-15-1">Changes in 8.15.1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-15-2">Changes in 8.15.2</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-14">Version 8.14</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id544">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id686">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-14-0">Changes in 8.14.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-14-1">Changes in 8.14.1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-13">Version 8.13</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id740">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id882">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-13-beta1">Changes in 8.13+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-13-0">Changes in 8.13.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-13-1">Changes in 8.13.1</a></li>
@@ -1043,7 +1011,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-12">Version 8.12</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id904">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1046">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-12-beta1">Changes in 8.12+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-12-0">Changes in 8.12.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-12-1">Changes in 8.12.1</a></li>
@@ -1051,7 +1019,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-11">Version 8.11</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1210">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1352">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-11-beta1">Changes in 8.11+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-11-0">Changes in 8.11.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-11-1">Changes in 8.11.1</a></li>
@@ -1059,7 +1027,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-10">Version 8.10</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1348">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1490">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#other-changes-in-8-10-beta1">Other changes in 8.10+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-10-beta2">Changes in 8.10+beta2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-10-beta3">Changes in 8.10+beta3</a></li>
@@ -1069,14 +1037,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-9">Version 8.9</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1495">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1637">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-9-beta1">Details of changes in 8.9+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-8-0">Changes in 8.8.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#changes-in-8-8-1">Changes in 8.8.1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-8">Version 8.8</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1497">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1639">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-8-beta1">Details of changes in 8.8+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-8-0">Details of changes in 8.8.0</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-8-1">Details of changes in 8.8.1</a></li>
@@ -1084,7 +1052,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-7">Version 8.7</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1498">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1640">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#potential-compatibility-issues">Potential compatibility issues</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-7-beta1">Details of changes in 8.7+beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-7-beta2">Details of changes in 8.7+beta2</a></li>
@@ -1094,7 +1062,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-6">Version 8.6</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1499">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1641">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#potential-sources-of-incompatibilities">Potential sources of incompatibilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-6beta1">Details of changes in 8.6beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-6">Details of changes in 8.6</a></li>
@@ -1102,8 +1070,8 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-5">Version 8.5</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1500">Summary of changes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1501">Potential sources of incompatibilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1642">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1643">Potential sources of incompatibilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-5beta1">Details of changes in 8.5beta1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-5beta2">Details of changes in 8.5beta2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-5beta3">Details of changes in 8.5beta3</a></li>
@@ -1114,32 +1082,32 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-4">Version 8.4</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1502">Summary of changes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1504">Potential sources of incompatibilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1644">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1646">Potential sources of incompatibilities</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-4beta">Details of changes in 8.4beta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-4beta2">Details of changes in 8.4beta2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-4">Details of changes in 8.4</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-3">Version 8.3</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1505">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1647">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes">Details of changes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-2">Version 8.2</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1506">Summary of changes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1507">Details of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1648">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1649">Details of changes</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-1">Version 8.1</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1508">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1650">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-1beta">Details of changes in 8.1beta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-1gamma">Details of changes in 8.1gamma</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-1">Details of changes in 8.1</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../changes.html#version-8-0">Version 8.0</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1509">Summary of changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../changes.html#id1651">Summary of changes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-0beta-old-syntax">Details of changes in 8.0beta old syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-0beta-new-syntax">Details of changes in 8.0beta new syntax</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../changes.html#details-of-changes-in-8-0">Details of changes in 8.0</a></li>
@@ -1162,72 +1130,31 @@
 <li class="toctree-l1"><a class="reference internal" href="../zebibliography.html">Bibliography</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">Coq</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../using/libraries/index.html">Libraries and plugins</a> &raquo;</li>
-        
       <li>The Coq library</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/coq/coq/blob/master/doc/sphinx/language/coq-library.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="math-preamble math notranslate nohighlight">
 \[\begin{split}\newcommand{\as}{\kw{as}}
 \newcommand{\case}{\kw{case}}
@@ -1299,7 +1226,7 @@
 \newcommand{\WTM}[3]{\WT{#1}{}{#2}{#3}}
 \newcommand{\zeroone}[1]{[{#1}]}
 \end{split}\]</div>
-<div class="section" id="the-coq-library">
+<section id="the-coq-library">
 <span id="thecoqlibrary"></span><h1>The Coq library<a class="headerlink" href="#the-coq-library" title="Permalink to this headline">¶</a></h1>
 <p id="index-0">The Coq library has two parts:</p>
 <blockquote>
@@ -1318,7 +1245,7 @@ These libraries and developments are available
 for download at <a class="reference external" href="https://coq.inria.fr/">https://coq.inria.fr/</a> (see <a class="reference internal" href="#userscontributions"><span class="std std-ref">Users’ contributions</span></a>).</p>
 <p>This chapter briefly reviews the Coq libraries whose contents can
 also be browsed at <a class="reference external" href="https://coq.inria.fr/stdlib/">https://coq.inria.fr/stdlib/</a>.</p>
-<div class="section" id="the-prelude">
+<section id="the-prelude">
 <h2>The prelude<a class="headerlink" href="#the-prelude" title="Permalink to this headline">¶</a></h2>
 <p>This section lists the basic notions and results which are directly
 available in the standard Coq system. Most of these constructions
@@ -1332,7 +1259,7 @@ in the Coq root directory; this includes the modules
 <code class="docutils literal notranslate"><span class="pre">Wf</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Tactics</span></code>.
 Module <code class="docutils literal notranslate"><span class="pre">Logic_Type</span></code> also makes it in the initial state.</p>
-<div class="section" id="notations">
+<section id="notations">
 <span id="init-notations"></span><h3>Notations<a class="headerlink" href="#notations" title="Permalink to this headline">¶</a></h3>
 <p>This module defines the parsing and pretty-printing of many symbols
 (infixes, prefixes, etc.). However, it does not assign a meaning to
@@ -1440,7 +1367,7 @@ notations fixed in the initial state are :</p>
 <td><p>40</p></td>
 <td><p>left</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">_</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">_</span> <span class="pre">&amp;&amp;</span> <span class="pre">_</span></code></p></td>
 <td><p>40</p></td>
 <td><p>left</p></td>
 </tr>
@@ -1462,8 +1389,8 @@ notations fixed in the initial state are :</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="logic">
+</section>
+<section id="logic">
 <span id="coq-library-logic"></span><h3>Logic<a class="headerlink" href="#logic" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Logic.v</span></code> in the basic library of Coq has the definitions of standard
 (intuitionistic) logical connectives defined as inductive
@@ -1522,7 +1449,7 @@ primitive universal quantification (it is a dependent product over a
 proposition). The primitive universal quantification allows both
 first-order and higher-order quantification.</p>
 </div>
-<div class="section" id="propositional-connectives">
+<section id="propositional-connectives">
 <h4>Propositional Connectives<a class="headerlink" href="#propositional-connectives" title="Permalink to this headline">¶</a></h4>
 <p id="index-1">First, we find propositional calculus connectives.
 At times, it's helpful to know exactly what these notations represent.</p>
@@ -1542,8 +1469,8 @@ At times, it's helpful to know exactly what these notations represent.</p>
 </span><span class="coqdoc-keyword">Definition</span><span> </span><span class="coqdoc-var">iff</span><span> (</span><span class="coqdoc-var">P</span><span> </span><span class="coqdoc-var">Q</span><span>:</span><span class="coqdoc-keyword">Prop</span><span>) := (</span><span class="coqdoc-var">P</span><span> -&gt; </span><span class="coqdoc-var">Q</span><span>) /\ (</span><span class="coqdoc-var">Q</span><span> -&gt; </span><span class="coqdoc-var">P</span><span>).</span><span>
 </span><span class="coqdoc-keyword">Definition</span><span> </span><span class="coqdoc-var">IF_then_else</span><span> (</span><span class="coqdoc-var">P</span><span> </span><span class="coqdoc-var">Q</span><span> </span><span class="coqdoc-var">R</span><span>:</span><span class="coqdoc-keyword">Prop</span><span>) := </span><span class="coqdoc-var">P</span><span> /\ </span><span class="coqdoc-var">Q</span><span> \/ ~ </span><span class="coqdoc-var">P</span><span> /\ </span><span class="coqdoc-var">R</span><span>.</span><span>
 </span></span></div>
-</div>
-<div class="section" id="quantifiers">
+</section>
+<section id="quantifiers">
 <h4>Quantifiers<a class="headerlink" href="#quantifiers" title="Permalink to this headline">¶</a></h4>
 <p id="index-2">Then we find first-order quantifiers:</p>
 <div class="coqtop literal-block docutils container">
@@ -1588,8 +1515,8 @@ ex2_sind is defined
 </table>
 <p>The type annotation <code class="docutils literal notranslate"><span class="pre">:A</span></code> can be omitted when <code class="docutils literal notranslate"><span class="pre">A</span></code> can be
 synthesized by the system.</p>
-</div>
-<div class="section" id="equality">
+</section>
+<section id="equality">
 <span id="coq-equality"></span><h4>Equality<a class="headerlink" href="#equality" title="Permalink to this headline">¶</a></h4>
 <p id="index-3">Then, we find equality, defined as an inductive relation. That is,
 given a type <code class="docutils literal notranslate"><span class="pre">A</span></code> and an <code class="docutils literal notranslate"><span class="pre">x</span></code> of type <code class="docutils literal notranslate"><span class="pre">A</span></code>, the
@@ -1609,8 +1536,8 @@ eq_sind is defined
 </span></dd>
 </dl>
 </div>
-</div>
-<div class="section" id="lemmas">
+</section>
+<section id="lemmas">
 <h4>Lemmas<a class="headerlink" href="#lemmas" title="Permalink to this headline">¶</a></h4>
 <p>Finally, a few easy lemmas are provided.</p>
 <div class="coqdoc literal-block docutils container" id="index-4">
@@ -1651,9 +1578,9 @@ For instance <code class="docutils literal notranslate"><span class="pre">f_equa
 </span></dd>
 </dl>
 </div>
-</div>
-</div>
-<div class="section" id="datatypes">
+</section>
+</section>
+<section id="datatypes">
 <span id="id1"></span><h3>Datatypes<a class="headerlink" href="#datatypes" title="Permalink to this headline">¶</a></h3>
 <p id="index-6">In the basic library, we find in <code class="docutils literal notranslate"><span class="pre">Datatypes.v</span></code> the definition
 of the basic data-types of programming,
@@ -1693,7 +1620,7 @@ the next section <a class="reference internal" href="#specification"><span class
 </tbody>
 </table>
 <p>The notation for pairs (elements of type prod) is: <code class="docutils literal notranslate"><span class="notation"><span><span><span class="pre">(</span></span></span><a class="reference internal" href="core/basic.html#grammar-token-term"><span class="hole"><span class="pre">term</span></span></a><span><span><span class="pre">,</span></span></span> <a class="reference internal" href="core/basic.html#grammar-token-term"><span class="hole"><span class="pre">term</span></span></a><span><span><span class="pre">)</span></span></span></span></code></p>
-<div class="section" id="programming">
+<section id="programming">
 <h4>Programming<a class="headerlink" href="#programming" title="Permalink to this headline">¶</a></h4>
 <div class="coqtop literal-block docutils container" id="index-7">
 <span></span><dl>
@@ -1778,9 +1705,9 @@ B is declared
 <p>Some operations on <code class="docutils literal notranslate"><span class="pre">bool</span></code> are also provided: <code class="docutils literal notranslate"><span class="pre">andb</span></code> (with
 infix notation <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>), <code class="docutils literal notranslate"><span class="pre">orb</span></code> (with
 infix notation <code class="docutils literal notranslate"><span class="pre">||</span></code>), <code class="docutils literal notranslate"><span class="pre">xorb</span></code>, <code class="docutils literal notranslate"><span class="pre">implb</span></code> and <code class="docutils literal notranslate"><span class="pre">negb</span></code>.</p>
-</div>
-</div>
-<div class="section" id="specification">
+</section>
+</section>
+<section id="specification">
 <span id="id2"></span><h3>Specification<a class="headerlink" href="#specification" title="Permalink to this headline">¶</a></h3>
 <p>The following notions defined in module <code class="docutils literal notranslate"><span class="pre">Specif.v</span></code> allow to build new data-types and specifications.
 They are available with the syntax shown in the previous section <a class="reference internal" href="#datatypes"><span class="std std-ref">Datatypes</span></a>.</p>
@@ -1924,15 +1851,16 @@ realizability interpretation.</p>
 </span><span class="coqdoc-keyword">Theorem</span><span> </span><span class="coqdoc-var">and_rect2</span><span> :</span><span>
  </span><span class="coqdoc-keyword">forall</span><span> (</span><span class="coqdoc-var">A</span><span> </span><span class="coqdoc-var">B</span><span>:</span><span class="coqdoc-keyword">Prop</span><span>) (</span><span class="coqdoc-var">P</span><span>:</span><span class="coqdoc-keyword">Type</span><span>), (</span><span class="coqdoc-var">A</span><span> -&gt; </span><span class="coqdoc-var">B</span><span> -&gt; </span><span class="coqdoc-var">P</span><span>) -&gt; </span><span class="coqdoc-var">A</span><span> /\ </span><span class="coqdoc-var">B</span><span> -&gt; </span><span class="coqdoc-var">P</span><span>.</span><span>
 </span></span></div>
-</div>
-<div class="section" id="basic-arithmetic">
+</section>
+<section id="basic-arithmetic">
 <h3>Basic Arithmetic<a class="headerlink" href="#basic-arithmetic" title="Permalink to this headline">¶</a></h3>
 <p>The basic library includes a few elementary properties of natural
 numbers, together with the definitions of predecessor, addition and
 multiplication, in module <code class="docutils literal notranslate"><span class="pre">Peano.v</span></code>. It also
 provides a scope <code class="docutils literal notranslate"><span class="pre">nat_scope</span></code> gathering standard notations for
 common operations (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>) and a decimal notation for
-numbers, allowing for instance to write <code class="docutils literal notranslate"><span class="pre">3</span></code> for <code class="code Coq docutils literal notranslate"><span class="name"><span class="pre">S</span></span> <span class="operator"><span class="pre">(</span></span><span class="name"><span class="pre">S</span></span> <span class="operator"><span class="pre">(</span></span><span class="name"><span class="pre">S</span></span> <span class="name"><span class="pre">O</span></span><span class="operator"><span class="pre">)))</span></span></code>. This also works on
+numbers, allowing, for instance, writing <code class="docutils literal notranslate"><span class="pre">3</span></code> for <code class="code Coq docutils literal notranslate"><span class="name"><span class="pre">S</span></span> <span class="operator"><span class="pre">(</span></span><span class="name"><span class="pre">S</span></span> <span class="operator"><span class="pre">(</span></span><span class="name"><span class="pre">S</span></span> <span class="name"><span class="pre">O</span></span><span class="operator"><span class="pre">))</span></span></code>.
+This also works on
 the left hand side of a <code class="docutils literal notranslate"><span class="pre">match</span></code> expression (see for example
 section <a class="reference internal" href="../proof-engine/tactics.html#coq:tacn.refine" title="refine"><code class="xref coq coq-tacn docutils literal notranslate"><span class="pre">refine</span></code></a>). This scope is opened by default.</p>
 <div class="admonition note">
@@ -2001,7 +1929,7 @@ even is recursively defined (guarded on 1st argument)
 &gt; Inductive le (n:nat) : nat -&gt; Prop := | le_n : le n n | le_S : forall m:nat, n &lt;= m -&gt; n &lt;= (S m) where &quot;n &lt;= m&quot; := (le n m) : nat_scope.
 &gt; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 </span><span class="ansi-fg-white ansi-bg-yellow ansi-bold">Warning:</span><span> Notation &quot;_ &lt;= _&quot; was already used in scope nat_scope.
-[notation-overridden,parsing]
+[notation-overridden,parsing,default]
 le is defined
 le_ind is defined
 le_sind is defined
@@ -2009,7 +1937,7 @@ Toplevel input, characters 0-137:
 &gt; Inductive le (n:nat) : nat -&gt; Prop := | le_n : le n n | le_S : forall m:nat, n &lt;= m -&gt; n &lt;= (S m) where &quot;n &lt;= m&quot; := (le n m) : nat_scope.
 &gt; ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 </span><span class="ansi-fg-white ansi-bg-yellow ansi-bold">Warning:</span><span> Notation &quot;_ &lt;= _&quot; was already used in scope nat_scope.
-[notation-overridden,parsing]
+[notation-overridden,parsing,default]
 </span></dd>
 <dt><span></span><span class="coqdoc-keyword">Definition</span><span> </span><span class="coqdoc-var">lt</span><span> (</span><span class="coqdoc-var">n</span><span> </span><span class="coqdoc-var">m</span><span>:</span><span class="coqdoc-var">nat</span><span>) := </span><span class="coqdoc-var">S</span><span> </span><span class="coqdoc-var">n</span><span> &lt;= </span><span class="coqdoc-var">m</span><span>.</span><span>
 </span></dt><dd class="coqtop-hidden"><span>lt is defined
@@ -2036,8 +1964,8 @@ induction principle.</p>
   (</span><span class="coqdoc-keyword">forall</span><span> </span><span class="coqdoc-var">n</span><span>:</span><span class="coqdoc-var">nat</span><span>, </span><span class="coqdoc-var">R</span><span> (</span><span class="coqdoc-var">S</span><span> </span><span class="coqdoc-var">n</span><span>) 0) -&gt;</span><span>
   (</span><span class="coqdoc-keyword">forall</span><span> </span><span class="coqdoc-var">n</span><span> </span><span class="coqdoc-var">m</span><span>:</span><span class="coqdoc-var">nat</span><span>, </span><span class="coqdoc-var">R</span><span> </span><span class="coqdoc-var">n</span><span> </span><span class="coqdoc-var">m</span><span> -&gt; </span><span class="coqdoc-var">R</span><span> (</span><span class="coqdoc-var">S</span><span> </span><span class="coqdoc-var">n</span><span>) (</span><span class="coqdoc-var">S</span><span> </span><span class="coqdoc-var">m</span><span>)) -&gt; </span><span class="coqdoc-keyword">forall</span><span> </span><span class="coqdoc-var">n</span><span> </span><span class="coqdoc-var">m</span><span>:</span><span class="coqdoc-var">nat</span><span>, </span><span class="coqdoc-var">R</span><span> </span><span class="coqdoc-var">n</span><span> </span><span class="coqdoc-var">m</span><span>.</span><span>
 </span></span></div>
-</div>
-<div class="section" id="well-founded-recursion">
+</section>
+<section id="well-founded-recursion">
 <h3>Well-founded recursion<a class="headerlink" href="#well-founded-recursion" title="Permalink to this headline">¶</a></h3>
 <p>The basic library contains the basics of well-founded recursion and
 well-founded induction, in module <code class="docutils literal notranslate"><span class="pre">Wf.v</span></code>.</p>
@@ -2080,8 +2008,8 @@ fixpoint equation can be proved.</p>
 </span><span class="coqdoc-keyword">End</span><span> </span><span class="coqdoc-var">FixPoint</span><span>.</span><span>
 </span><span class="coqdoc-keyword">End</span><span> </span><span class="coqdoc-var">Well_founded</span><span>.</span><span>
 </span></span></div>
-</div>
-<div class="section" id="accessing-the-type-level">
+</section>
+<section id="accessing-the-type-level">
 <h3>Accessing the Type level<a class="headerlink" href="#accessing-the-type-level" title="Permalink to this headline">¶</a></h3>
 <p>The standard library includes <code class="docutils literal notranslate"><span class="pre">Type</span></code> level definitions of counterparts of some
 logic concepts and basic lemmas about them.</p>
@@ -2108,17 +2036,17 @@ provides the definition of <code class="docutils literal notranslate"><span clas
 </span></dd>
 </dl>
 </div>
-</div>
-<div class="section" id="tactics">
+</section>
+<section id="tactics">
 <h3>Tactics<a class="headerlink" href="#tactics" title="Permalink to this headline">¶</a></h3>
 <p>A few tactics defined at the user level are provided in the initial
 state, in module <code class="docutils literal notranslate"><span class="pre">Tactics.v</span></code>. They are listed at
 <a class="reference external" href="https://coq.inria.fr/stdlib/">https://coq.inria.fr/stdlib/</a>, in paragraph <code class="docutils literal notranslate"><span class="pre">Init</span></code>, link <code class="docutils literal notranslate"><span class="pre">Tactics</span></code>.</p>
-</div>
-</div>
-<div class="section" id="the-standard-library">
+</section>
+</section>
+<section id="the-standard-library">
 <h2>The standard library<a class="headerlink" href="#the-standard-library" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="survey">
+<section id="survey">
 <h3>Survey<a class="headerlink" href="#survey" title="Permalink to this headline">¶</a></h3>
 <p>The rest of the standard library is structured into the following
 subdirectories:</p>
@@ -2148,8 +2076,8 @@ are directly accessible with the command <code class="docutils literal notransla
 Section <a class="reference internal" href="../proof-engine/vernacular-commands.html#compiled-files"><span class="std std-ref">Compiled files</span></a>).</p>
 <p>The different modules of the Coq standard library are documented
 online at <a class="reference external" href="https://coq.inria.fr/stdlib/">https://coq.inria.fr/stdlib/</a>.</p>
-</div>
-<div class="section" id="peanos-arithmetic-nat">
+</section>
+<section id="peanos-arithmetic-nat">
 <h3>Peano’s arithmetic (nat)<a class="headerlink" href="#peanos-arithmetic-nat" title="Permalink to this headline">¶</a></h3>
 <p id="index-23">While in the initial state, many operations and predicates of Peano's
 arithmetic are defined, further operations and results belong to other
@@ -2203,8 +2131,8 @@ defined here. This is provided by requiring the module <code class="docutils lit
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="notations-for-integer-arithmetic">
+</section>
+<section id="notations-for-integer-arithmetic">
 <h3>Notations for integer arithmetic<a class="headerlink" href="#notations-for-integer-arithmetic" title="Permalink to this headline">¶</a></h3>
 <p id="index-24">The following table describes the syntax of expressions
 for integer arithmetic. It is provided by requiring and opening the module <code class="docutils literal notranslate"><span class="pre">ZArith</span></code> and opening scope <code class="docutils literal notranslate"><span class="pre">Z_scope</span></code>.
@@ -2315,6 +2243,7 @@ already reserved, the precedence and associativity.</p>
 </span></dt><dd><span>[Loading ML file ring_plugin.cmxs (using legacy method) ... done]
 [Loading ML file zify_plugin.cmxs (using legacy method) ... done]
 [Loading ML file micromega_plugin.cmxs (using legacy method) ... done]
+[Loading ML file btauto_plugin.cmxs (using legacy method) ... done]
 </span></dd>
 <dt><span></span><span class="coqdoc-keyword">Check</span><span> (2 + 3)%</span><span class="coqdoc-var">Z</span><span>.</span><span>
 </span></dt><dd><span>(2</span><span> +</span><span> 3)%Z
@@ -2328,10 +2257,10 @@ already reserved, the precedence and associativity.</p>
 </dl>
 </div>
 </div>
-</div>
-<div class="section" id="real-numbers-library">
+</section>
+<section id="real-numbers-library">
 <h3>Real numbers library<a class="headerlink" href="#real-numbers-library" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="notations-for-real-numbers">
+<section id="notations-for-real-numbers">
 <h4>Notations for real numbers<a class="headerlink" href="#notations-for-real-numbers" title="Permalink to this headline">¶</a></h4>
 <p>This is provided by requiring and opening the module <code class="docutils literal notranslate"><span class="pre">Reals</span></code> and
 opening scope <code class="docutils literal notranslate"><span class="pre">R_scope</span></code>. This set of notations is very similar to
@@ -2411,14 +2340,14 @@ the notation for integer arithmetic. The inverse function was added.</p>
 </dl>
 </div>
 </div>
-</div>
-<div class="section" id="some-tactics-for-real-numbers">
+</section>
+<section id="some-tactics-for-real-numbers">
 <h4>Some tactics for real numbers<a class="headerlink" href="#some-tactics-for-real-numbers" title="Permalink to this headline">¶</a></h4>
 <p>In addition to the powerful <code class="docutils literal notranslate"><span class="pre">ring</span></code>, <code class="docutils literal notranslate"><span class="pre">field</span></code> and <code class="docutils literal notranslate"><span class="pre">lra</span></code>
 tactics (see Chapter <a class="reference internal" href="../proof-engine/tactics.html#tactics"><span class="std std-ref">Tactics</span></a>), there are also:</p>
 <dl class="coq tacn">
-<dt id="coq:tacn.discrR">
-<em class="property"><span class="sigannot">Tactic</span></em> <code class="sig-name descname"><span class="notation"><span><span>discrR</span></span></span></code><a class="headerlink" href="#coq:tacn.discrR" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object coq" id="coq:tacn.discrR">
+<em class="property"><span class="sigannot"><span class="pre">Tactic</span></span></em> <span class="sig-name descname"><span class="notation"><span><span><span class="pre">discrR</span></span></span></span></span><a class="headerlink" href="#coq:tacn.discrR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Proves that two real integer constants are different.</p>
 </dd></dl>
 
@@ -2439,8 +2368,8 @@ tactics (see Chapter <a class="reference internal" href="../proof-engine/tactics
 </div>
 </div>
 <dl class="coq tacn">
-<dt id="coq:tacn.split_Rabs">
-<em class="property"><span class="sigannot">Tactic</span></em> <code class="sig-name descname"><span class="notation"><span><span>split</span></span><span><span>_</span></span><span><span>Rabs</span></span></span></code><a class="headerlink" href="#coq:tacn.split_Rabs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object coq" id="coq:tacn.split_Rabs">
+<em class="property"><span class="sigannot"><span class="pre">Tactic</span></span></em> <span class="sig-name descname"><span class="notation"><span><span><span class="pre">split</span></span></span><span><span><span class="pre">_</span></span></span><span><span><span class="pre">Rabs</span></span></span></span></span><a class="headerlink" href="#coq:tacn.split_Rabs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Allows unfolding the <code class="docutils literal notranslate"><span class="pre">Rabs</span></code> constant and splits corresponding conjunctions.</p>
 </dd></dl>
 
@@ -2471,8 +2400,8 @@ goal 2 is:
 </div>
 </div>
 <dl class="coq tacn">
-<dt id="coq:tacn.split_Rmult">
-<em class="property"><span class="sigannot">Tactic</span></em> <code class="sig-name descname"><span class="notation"><span><span>split</span></span><span><span>_</span></span><span><span>Rmult</span></span></span></code><a class="headerlink" href="#coq:tacn.split_Rmult" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object coq" id="coq:tacn.split_Rmult">
+<em class="property"><span class="sigannot"><span class="pre">Tactic</span></span></em> <span class="sig-name descname"><span class="notation"><span><span><span class="pre">split</span></span></span><span><span><span class="pre">_</span></span></span><span><span><span class="pre">Rmult</span></span></span></span></span><a class="headerlink" href="#coq:tacn.split_Rmult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Splits a condition that a product is non-null into subgoals
 corresponding to the condition on each operand of the product.</p>
 </dd></dl>
@@ -2504,9 +2433,9 @@ goal 3 is:
 </dl>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="list-library">
+</section>
+</section>
+<section id="list-library">
 <h3>List library<a class="headerlink" href="#list-library" title="Permalink to this headline">¶</a></h3>
 <p id="index-25">Some elementary operations on polymorphic lists are defined here.
 They can be accessed by requiring module <code class="docutils literal notranslate"><span class="pre">List</span></code>.</p>
@@ -2553,8 +2482,8 @@ They can be accessed by requiring module <code class="docutils literal notransla
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="floats-library">
+</section>
+<section id="floats-library">
 <span id="id3"></span><h3>Floats library<a class="headerlink" href="#floats-library" title="Permalink to this headline">¶</a></h3>
 <p>The library of primitive floating-point arithmetic can be loaded by
 requiring module <code class="docutils literal notranslate"><span class="pre">Floats</span></code>:</p>
@@ -2668,15 +2597,15 @@ defined:</p>
 decimal constants. This ensures that the composition
 <span class="math notranslate nohighlight">\(\text{parse} \circ \text{print}\)</span> amounts to the identity.</p>
 <dl class="coq warn">
-<dt id="coq:warn.The-constant-‘number’-is-not-a-binary64-floating-point-value.-A-closest-value-‘number’-will-be-used-and-unambiguously-printed-‘number’.-[inexact-float,parsing]">
-<em class="property"><span class="sigannot">Warning</span></em> <code class="sig-name descname"><span class="notation"><span><span>The</span></span> <span><span>constant</span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole">number</span></a> <span><span>is</span></span> <span><span>not</span></span> <span><span>a</span></span> <span><span>binary64</span></span> <span><span>floating-point</span></span> <span><span>value.</span></span> <span><span>A</span></span> <span><span>closest</span></span> <span><span>value</span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole">number</span></a> <span><span>will</span></span> <span><span>be</span></span> <span><span>used</span></span> <span><span>and</span></span> <span><span>unambiguously</span></span> <span><span>printed</span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole">number</span></a><span><span>.</span></span> <span><span>[inexact-float,parsing]</span></span></span></code><a class="headerlink" href="#coq:warn.The-constant-‘number’-is-not-a-binary64-floating-point-value.-A-closest-value-‘number’-will-be-used-and-unambiguously-printed-‘number’.-[inexact-float,parsing]" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object coq" id="coq:warn.The-constant-‘number’-is-not-a-binary64-floating-point-value.-A-closest-value-‘number’-will-be-used-and-unambiguously-printed-‘number’.-[inexact-float,parsing]">
+<em class="property"><span class="sigannot"><span class="pre">Warning</span></span></em> <span class="sig-name descname"><span class="notation"><span><span><span class="pre">The</span></span></span> <span><span><span class="pre">constant</span></span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole"><span class="pre">number</span></span></a> <span><span><span class="pre">is</span></span></span> <span><span><span class="pre">not</span></span></span> <span><span><span class="pre">a</span></span></span> <span><span><span class="pre">binary64</span></span></span> <span><span><span class="pre">floating-point</span></span></span> <span><span><span class="pre">value.</span></span></span> <span><span><span class="pre">A</span></span></span> <span><span><span class="pre">closest</span></span></span> <span><span><span class="pre">value</span></span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole"><span class="pre">number</span></span></a> <span><span><span class="pre">will</span></span></span> <span><span><span class="pre">be</span></span></span> <span><span><span class="pre">used</span></span></span> <span><span><span class="pre">and</span></span></span> <span><span><span class="pre">unambiguously</span></span></span> <span><span><span class="pre">printed</span></span></span> <a class="reference internal" href="core/basic.html#grammar-token-number"><span class="hole"><span class="pre">number</span></span></a><span><span><span class="pre">.</span></span></span> <span><span><span class="pre">[inexact-float,parsing]</span></span></span></span></span><a class="headerlink" href="#coq:warn.The-constant-‘number’-is-not-a-binary64-floating-point-value.-A-closest-value-‘number’-will-be-used-and-unambiguously-printed-‘number’.-[inexact-float,parsing]" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not all decimal constants are floating-point values. This warning
 is generated when parsing such a constant (for instance <code class="docutils literal notranslate"><span class="pre">0.1</span></code>).</p>
 </dd></dl>
 
 <dl class="coq flag">
-<dt id="coq:flag.Printing-Float">
-<em class="property"><span class="sigannot">Flag</span></em> <code class="sig-name descname"><span class="notation"><span><span>Printing</span></span> <span><span>Float</span></span></span></code><a class="headerlink" href="#coq:flag.Printing-Float" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object coq" id="coq:flag.Printing-Float">
+<em class="property"><span class="sigannot"><span class="pre">Flag</span></span></em> <span class="sig-name descname"><span class="notation"><span><span><span class="pre">Printing</span></span></span> <span><span><span class="pre">Float</span></span></span></span></span><a class="headerlink" href="#coq:flag.Printing-Float" title="Permalink to this definition">¶</a></dt>
 <dd><p>Turn this <a class="reference internal" href="core/basic.html#term-flag"><span class="xref std std-term">flag</span></a> off (it is on by default) to deactivate decimal
 printing of floating-point constants. They will then be printed
 with an hexadecimal representation.</p>
@@ -2746,9 +2675,9 @@ Arguments </span><span class="ansi-fg-light-green">S754_finite</span><span> s%bo
 </div>
 <p>For more details on the available definitions and lemmas, see the
 online documentation of the <code class="docutils literal notranslate"><span class="pre">Floats</span></code> library.</p>
-</div>
-</div>
-<div class="section" id="users-contributions">
+</section>
+</section>
+<section id="users-contributions">
 <span id="userscontributions"></span><h2>Users’ contributions<a class="headerlink" href="#users-contributions" title="Permalink to this headline">¶</a></h2>
 <p>Numerous users' contributions have been collected and are available at
 URL <a class="reference external" href="https://coq.inria.fr/opam/www/">https://coq.inria.fr/opam/www/</a>.  On this web page, you have a list
@@ -2756,42 +2685,32 @@ of all contributions with informations (author, institution, quick
 description, etc.) and the possibility to download them one by one.
 You will also find informations on how to submit a new
 contribution.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../addendum/extraction.html" class="btn btn-neutral float-right" title="Program extraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../using/libraries/index.html" class="btn btn-neutral float-left" title="Libraries and plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../using/libraries/index.html" class="btn btn-neutral float-left" title="Libraries and plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../addendum/extraction.html" class="btn btn-neutral float-right" title="Program extraction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 1999-2021, Inria, CNRS and contributors
-
-    </p>
+    <p>&#169; Copyright 1999-2021, Inria, CNRS and contributors.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
   
 
@@ -2801,7 +2720,7 @@ contribution.</p>
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Other versions</span>
-      v: 8.17.1
+      v: 8.18.0
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -2812,7 +2731,9 @@ contribution.</p>
         
           <dd><a href="https://coq.inria.fr/distrib/current/refman/">stable</a></dd>
         
-          <dd><a href="https://coq.github.io/doc/v8.17/refman/">8.17</a></dd>
+          <dd><a href="https://coq.github.io/doc/v8.18/refman/">8.18</a></dd>
+        
+          <dd><a href="https://coq.inria.fr/distrib/V8.17.1/refman/">8.17</a></dd>
         
           <dd><a href="https://coq.inria.fr/distrib/V8.16.1/refman/">8.16</a></dd>
         
@@ -2852,23 +2773,16 @@ contribution.</p>
       <dl>
         <dt>Downloads</dt>
         
-          <dd><a href="https://github.com/coq/coq/releases/download/V8.17.1/coq-8.17.1-reference-manual.pdf">PDF</a></dd>
+          <dd><a href="https://github.com/coq/coq/releases/download/V8.18.0/coq-8.18.0-reference-manual.pdf">PDF</a></dd>
         
       </dl>
     </div>
   </div>
-
-
-  <script type="text/javascript">
+<script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

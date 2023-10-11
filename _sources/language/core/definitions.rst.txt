@@ -42,6 +42,7 @@ Type cast
    term_cast ::= @term10 : @type
    | @term10 <: @type
    | @term10 <<: @type
+   | @term10 :> @type
 
 The expression :n:`@term10 : @type` is a type cast expression. It enforces
 the type of :n:`@term10` to be :n:`@type`.
@@ -51,6 +52,10 @@ to type check that :n:`@term10` has type :n:`@type` (see :tacn:`vm_compute`).
 
 :n:`@term10 <<: @type` specifies that compilation to OCaml will be used
 to type check that :n:`@term10` has type :n:`@type` (see :tacn:`native_compute`).
+
+:n:`@term10 :> @type` enforces the type of :n:`@term10` to be
+:n:`@type` without leaving a trace in the produced value.
+This is a :gdef:`volatile cast`.
 
 .. _gallina-definitions:
 
@@ -92,7 +97,7 @@ Section :ref:`typing-rules`.
 
    These commands also support the :attr:`universes(polymorphic)`,
    :attr:`program` (see :ref:`program_definition`), :attr:`canonical`,
-   :attr:`bypass_check(universes)`, :attr:`bypass_check(guard)`, and
+   :attr:`bypass_check(universes)`, :attr:`bypass_check(guard)`, :attr:`deprecated` and
    :attr:`using` attributes.
 
    If :n:`@term` is omitted, :n:`@type` is required and Coq enters proof mode.
@@ -166,7 +171,7 @@ The basic assertion command is:
    command :cmd:`Guarded`.
 
    This command accepts the :attr:`bypass_check(universes)`,
-   :attr:`bypass_check(guard)`, and :attr:`using` attributes.
+   :attr:`bypass_check(guard)`, :attr:`deprecated`, and :attr:`using` attributes.
 
    .. exn:: The term @term has type @type which should be Set, Prop or Type.
       :undocumented:

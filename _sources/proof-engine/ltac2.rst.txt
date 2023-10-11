@@ -37,34 +37,6 @@ Current limitations include:
 
   - Printing functions are limited and awkward to use.  Only a few data types are
     printable.
-  - A convenient way to build terms with casts through the low-level API. Because the
-    cast type is opaque, building terms with casts currently requires an awkward construction like the
-    following, which also incurs extra overhead to repeat typechecking for each
-    call to `get_vm_cast`:
-
-    .. coqdoc::
-
-       Constr.Unsafe.make (Constr.Unsafe.Cast 'I (get_vm_cast ()) 'True)
-
-    with:
-
-    .. coqtop:: none
-
-       From Ltac2 Require Import Ltac2.
-
-    .. coqtop:: in
-
-       Ltac2 get_vm_cast () :=
-         match Constr.Unsafe.kind '(I <: True) with
-         | Constr.Unsafe.Cast _ cst _ => cst
-         | _ => Control.throw Not_found
-         end.
-
-- Missing low-level primitives that are convenient for writing automation, such as:
-
-  - An easy way to get the number of constructors of an inductive type.
-    Currently only way to do this is to destruct a variable of the inductive type
-    and count the number of goals that result.
 
 - Error messages may be cryptic.
 
@@ -220,12 +192,12 @@ One can define new types with the following commands.
    Records are product types with named fields and eliminated by projection.
    Likewise they can be recursive if the `rec` flag is set.
 
-.. cmd:: Ltac2 @ external @ident : @ltac2_type := @string @string
+.. cmd:: Ltac2 @ external @ident : @ltac2_type := @string__plugin @string__function
    :name: Ltac2 external
 
-   Declares abstract terms.  Frequently, these declare OCaml functions
-   defined in Coq and give their type information.  They can also declare
-   data structures from OCaml.  This command has no use for the end user.
+   Declares functions defined in OCaml. :n:`@string__plugin` is the
+   plugin name defining the function.  :n:`@string__function` is the internal name
+   of the function.
 
    This command supports the :attr:`deprecated` attribute.
 
@@ -278,6 +250,7 @@ There is dedicated syntax for list and array literals.
    ltac2_expr0 ::= ( @ltac2_expr )
    | ( @ltac2_expr : @ltac2_type )
    | ()
+   | [ %| {*; @ltac2_expr5 } %| ]
    | [ {*; @ltac2_expr5 } ]
    | %{ @ltac2_expr0 with {? {+; @tac2rec_fieldexpr } {? ; } } %}
    | %{ {? {+; @tac2rec_fieldexpr } {? ; } } %}
@@ -290,7 +263,7 @@ There is dedicated syntax for list and array literals.
    | @string
    | @qualid
    | @ @ident
-   | & @lident
+   | & @ident
    | ' @term
    | @ltac2_quotations
 
@@ -576,7 +549,7 @@ Built-in quotations
 .. insertprodn ltac2_quotations ltac1_expr_in_env
 
 .. prodn::
-   ltac2_quotations ::= ident : ( @lident )
+   ltac2_quotations ::= ident : ( @ident )
    | constr : ( @term )
    | open_constr : ( @term )
    | preterm : ( @term )
@@ -632,6 +605,8 @@ Strict mode is enforced by default, such as for all Ltac2 definitions. Non-stric
 mode is only set when evaluating Ltac2 snippets in interactive proof mode. The
 rationale is that it is cumbersome to explicitly add ``&`` interactively, while it
 is expected that global tactics enforce more invariants on their code.
+
+.. _term-antiquotations:
 
 Term Antiquotations
 ~~~~~~~~~~~~~~~~~~~
@@ -770,9 +745,19 @@ the notation section.
 
 .. prodn:: term += $@lident
 
+or equivalently
+
+.. prodn:: term += $constr:@lident
+
 In a Coq term, writing :g:`$x` is semantically equivalent to
 :g:`ltac2:(Control.refine (fun () => x))`, up to re-typechecking. It allows to
 insert in a concise way an Ltac2 variable of type :n:`constr` into a Coq term.
+
+Similarly variables of type `preterm` have an antiquotation
+
+.. prodn:: term += $preterm:@lident
+
+It is equivalent to pretyping the preterm with the appropriate typing constraint.
 
 Match over terms
 ~~~~~~~~~~~~~~~~
@@ -856,8 +841,6 @@ in a less hard-wired way.
       the variable :token:`ident` matches any complex expression with (possible)
       dependencies in the variables :n:`@ident__i` and returns a functional term
       of the form :n:`fun @ident__1 … @ident__n => @term`.
-
-   .. _match_term_context:
 
    :n:`context {? @ident } [ @cpattern ]`
       Matches any term with a subterm matching :token:`cpattern`. If there is a match
@@ -1164,7 +1147,7 @@ Match on values
       | @qualid
       | @tac2pat0 :: @tac2pat0
       | @tac2pat0 %| {+| @tac2pat1 }
-      | @tac2pat0 as @lident
+      | @tac2pat0 as @ident
       | @tac2pat0
       tac2pat0 ::= _
       | ()
@@ -1286,7 +1269,7 @@ Notations
 Abbreviations
 ~~~~~~~~~~~~~
 
-.. cmd:: Ltac2 Notation {| @string | @lident } := @ltac2_expr
+.. cmd:: Ltac2 Notation {| @string | @ident } := @ltac2_expr
    :name: Ltac2 Notation (abbreviation)
 
    Introduces a special kind of notation, called an abbreviation,
@@ -1497,7 +1480,7 @@ Other nonterminals that have syntactic classes are listed here.
 
       * - :n:`destruction_arg`
         - :token:`ltac2_destruction_arg`
-        - :token:`destruction_arg`
+        - :token:`induction_arg`
 
       * - :n:`with_bindings`
         - :token:`q_with_bindings`
@@ -1580,8 +1563,8 @@ Here is the syntax for the :n:`q_*` nonterminals:
    | _
    | @ltac2_or_and_intropattern
    | @ltac2_equality_intropattern
-   ltac2_naming_intropattern ::= ? @lident
-   | ?$ @lident
+   ltac2_naming_intropattern ::= ?@ident
+   | ?$ @ident
    | ?
    | @ident_or_anti
    ltac2_or_and_intropattern ::= [ {+| @ltac2_intropatterns } ]
@@ -1595,14 +1578,14 @@ Here is the syntax for the :n:`q_*` nonterminals:
 .. insertprodn ident_or_anti ident_or_anti
 
 .. prodn::
-   ident_or_anti ::= @lident
+   ident_or_anti ::= @ident
    | $ @ident
 
 .. insertprodn 	ltac2_destruction_arg ltac2_constr_with_bindings
 
 .. prodn::
    ltac2_destruction_arg ::= @natural
-   | @lident
+   | @ident
    | @ltac2_constr_with_bindings
    ltac2_constr_with_bindings ::= @term {? with @ltac2_bindings }
 
@@ -1615,7 +1598,7 @@ Here is the syntax for the :n:`q_*` nonterminals:
    ltac2_simple_binding ::= ( @qhyp := @term )
    qhyp ::= $ @ident
    | @natural
-   | @lident
+   | @ident
 
 .. insertprodn ltac2_reductions ltac2_delta_reductions
 
@@ -1652,7 +1635,7 @@ Here is the syntax for the :n:`q_*` nonterminals:
 .. prodn::
    q_occurrences ::= {? @ltac2_occs }
    ltac2_occs ::= at @ltac2_occs_nums
-   ltac2_occs_nums ::= {? - } {+ {| @natural  | $ @ident } }
+   ltac2_occs_nums ::= {? - } {+ {| @natural | $ @ident } }
    ltac2_concl_occ ::= * {? @ltac2_occs }
    ltac2_hypident_occ ::= @ltac2_hypident {? @ltac2_occs }
    ltac2_hypident ::= @ident_or_anti
@@ -1713,7 +1696,7 @@ Here is the syntax for the :n:`q_*` nonterminals:
    | ( @ident_or_anti : @term ) {? @ltac2_by_tactic }
    | @term {? @ltac2_as_ipat } {? @ltac2_by_tactic }
    ltac2_as_ipat ::= as @ltac2_simple_intropattern
-   ltac2_by_tactic ::= by @ltac2_expr
+   ltac2_by_tactic ::= by @ltac2_expr5
 
 Evaluation
 ----------
@@ -1736,6 +1719,8 @@ Debug
 
 Compatibility layer with Ltac1
 ------------------------------
+
+.. _ltac2in1:
 
 Ltac1 from Ltac2
 ~~~~~~~~~~~~~~~~
@@ -1823,9 +1808,36 @@ below will fail immediately and won't print anything.
    Fail mytac ltac2:(fail).
    (* Prints and fails *)
    Fail mytac ltac:(idtac; ltac2:(fail)).
+   Abort.
 
 In any case, the value returned by the fully applied quotation is an
 unspecified dummy Ltac1 closure and should not be further used.
+
+Use the `ltac2val` quotation to return values to Ltac1 from Ltac2.
+
+.. prodn::
+   ltac_expr += ltac2val : ( @ltac2_expr )
+   | ltac2val : ( {+ @ident } |- @ltac2_expr )
+
+It has the same typing rules as `ltac2:()` except the expression must have type `Ltac2.Ltac1.t`.
+
+.. coqtop:: all
+
+   Import Constr.Unsafe.
+
+   Ltac add1 x :=
+     let f := ltac2val:(Ltac1.lambda (fun y =>
+       let y := Option.get (Ltac1.to_constr y) in
+       let y := make (App constr:(S) [|y|]) in
+       Ltac1.of_constr y))
+     in
+     f x.
+
+   Goal True.
+     let z := constr:(0) in
+     let v := add1 z in
+     idtac v.
+   Abort.
 
 Switching between Ltac languages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

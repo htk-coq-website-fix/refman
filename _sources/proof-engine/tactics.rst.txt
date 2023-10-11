@@ -814,15 +814,6 @@ Applying theorems
    .. todo: we should be listing things like "Debug tactic-unification" in
       in the options index.  Maybe we should add ":debug:" as a new tag.
 
-   .. flag:: Apply With Renaming
-
-      When on, this flag causes the names in the :n:`@term`'s type to be renamed for uniqueness.
-      By default no renaming is done.
-
-      .. deprecated:: 8.15
-
-         Provided for compatibility with versions prior to 8.15.
-
    .. _apply_backward:
    .. example:: Backward reasoning in the goal with `apply`
 
@@ -1306,12 +1297,11 @@ Managing the local context
    to the goal, if this respects dependencies. This is
    the inverse of :tacn:`intro`.
 
-   .. exn:: @ident__1 is used in the hypothesis @ident__2.
-      :undocumented:
-
    .. tacn:: revert dependent @ident
 
-      Moves the named hypothesis and all the hypotheses that depend on it to the goal.
+      .. deprecated:: 8.18
+
+      An alias for :tacn:`generalize dependent`.
 
 .. tacn:: move @ident__from @where
 
@@ -1384,9 +1374,6 @@ Managing the local context
    Renaming is done simultaneously, which permits swapping the names of 2 hypotheses.
    (Note that the renaming is applied in the context and the existential
    variables, but the proof term doesn't change.)
-
-   .. exn:: @ident is already used.
-      :undocumented:
 
 .. tacn:: set @alias_definition {? @occurrences }
           set @one_term {? @as_name } {? @occurrences }
@@ -1714,7 +1701,7 @@ Controlling the proof flow
    The body of this binding is a fresh existential variable.  If the second
    form is used, Coq chooses the name.
 
-.. tacn:: instantiate {? ( @ident := @term ) }
+.. tacn:: instantiate ( @ident := @term )
           instantiate ( @natural := @term ) {? @hloc }
    :name: instantiate; _
 
@@ -1737,11 +1724,6 @@ Controlling the proof flow
              explicitly, be aware that Coq may make a different decision on how to
              name the variable in the current goal and in the context of the
              existential variable. This can lead to surprising behaviors.
-
-   .. deprecated:: 8.16
-
-      The no argument form is equivalent to :tacn:`idtac`.  This form (only)
-      is deprecated in 8.16.
 
    The second form refines an existential variable selected by its position.  The
    :n:`@natural` argument is the position of the existential variable
@@ -1869,7 +1851,7 @@ Controlling the proof flow
    Implements the “ex falso quodlibet” logical principle: an
    elimination of False is performed on the current goal, and the user is
    then required to prove that False is indeed provable in the current
-   context. This tactic is equivalent to :tacn:`elimtype` :n:`False`.
+   context.
 
 Classical tactics
 -----------------

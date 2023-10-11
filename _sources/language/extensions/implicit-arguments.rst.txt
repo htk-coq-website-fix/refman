@@ -180,7 +180,7 @@ declares the argument `A` of `id` as a maximally
 inserted implicit argument. `A` may be omitted
 in applications of `id` but may be specified if needed:
 
-.. coqtop:: all
+.. coqtop:: all abort
 
    Definition compose {A B C} (g : B -> C) (f : A -> B) := fun x => g (f x).
 
@@ -604,10 +604,6 @@ generalized unless provided. This produces a fully general statement.
 this behavior may be disabled by prefixing the type with a ``!`` or
 by forcing the typeclass name to be an explicit application using
 ``@`` (however the later ignores implicit argument information).
-
-.. coqtop:: none
-
-   Set Warnings "-deprecated-instance-without-locality".
 
 .. coqtop:: all
 

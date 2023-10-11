@@ -246,9 +246,6 @@ When the proof is completed, you can exit proof mode with commands such as
    :n:`All`
      Aborts all current proofs.
 
-   .. exn:: No focused proof (No proof-editing in progress).
-      :undocumented:
-
 .. cmd:: Proof @term
    :name: Proof `term`
 
@@ -578,7 +575,7 @@ Curly braces
 
    Note that when a focused goal is proved a message is displayed
    together with a suggestion about the right bullet or ``}`` to unfocus it
-   or focus the next one.
+   or focus the next goal.
 
    :n:`@natural:`
      Focuses on the :token:`natural`\-th goal to prove.
@@ -652,17 +649,12 @@ same bullet ``b``. See the example below.
 
 Different bullets can be used to nest levels. The scope of each bullet
 is limited to the enclosing ``{`` and ``}``, so bullets can be reused as further
-nesting levels provided they are delimited by curly braces. Bullets are made from
-``-``, ``+`` or ``*`` characters (with no spaces and no period afterward):
+nesting levels provided they are delimited by curly braces.  A :production:`bullet`
+is made from ``-``, ``+`` or ``*`` characters (with no spaces and no period afterward):
 
-.. tacn:: @bullet
+.. tacn:: {| {+ - } | {+ + } | {+ * } }
    :undocumented:
-   :name: bullet
-
-   .. insertprodn bullet bullet
-
-   .. prodn::
-      bullet ::= {| {+ - } | {+ + } | {+ * } }
+   :name: bullet (- + *)
 
 When a focused goal is proved, Coq displays a message suggesting use of
 ``}`` or the correct matching bullet to unfocus the goal or focus the next subgoal.
@@ -1027,6 +1019,13 @@ Requesting information
    The command :cmd:`Guarded` allows checking if the guard condition for
    fixpoint and cofixpoint is violated at some time of the construction
    of the proof without having to wait the completion of the proof.
+
+.. cmd:: Validate Proof
+
+   Checks that the current partial proof is well-typed.
+   It is useful for finding tactic bugs since without it, such errors will only be detected at :cmd:`Qed` time.
+
+   It does not check the guard condition.  Use :cmd:`Guarded` for that.
 
 .. _showing_diffs:
 
